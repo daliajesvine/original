@@ -30,12 +30,12 @@ ctrl.getAllProducts = function () {
             console.log(response);
                  //  $scope.products  =  response.data;
                  ctrl.products = [];
-                  response.data.forEach(element => {
-                      var product = new Object();
-                      product.description = element.description;
-                      product.url = imageUrl + element.url;
-                      ctrl.products.push(product);
-                  });
+                  response.data.array.forEach(function(element) {
+                    var product = new Object();
+                    product.description = element.description;
+                    product.url = imageUrl + element.url;
+                    ctrl.products.push(product);
+                }, this);
             });
 }
 
